@@ -1,0 +1,12 @@
+SSID:	dev_ladder
+协议:	802.11n
+安全类型:	WPA2-个人
+网络频带:	2.4 GHz
+网络通道:	6
+IPv4 地址:	192.168.26.234
+IPv4 DNS 服务器:	211.157.131.6
+114.114.114.114
+制造商:	Intel Corporation
+描述:	Intel(R) Wireless-N 7260
+驱动程序版本:	17.15.0.5
+物理地址(MAC):	E8-B1-FC-5A-F2-C1

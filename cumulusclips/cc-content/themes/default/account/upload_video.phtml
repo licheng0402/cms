@@ -1,0 +1,36 @@
+<?php
+$this->addJs('fileupload.jquery-ui.widget.js');
+$this->addJs('fileupload.iframe-transport.js');
+$this->addJs('fileupload.plugin.js');
+$this->addJs('fileupload.js');
+$this->setLayout('account');
+?>
+
+<h1><?php echo Language::getText('upload_video_header'); ?></h1>
+
+<div class="message"></div>
+
+<p><?php echo Language::getText('upload_video_text'); ?></p>
+<p class="big"><?php echo Language::getText('filesize_limit'); ?>: <?php echo \Functions::formatBytes($config->videoSizeLimit, 0); ?></p>
+<p class="big"><?php echo Language::getText('upload_supported_formats') . ': ' . implode(', ', $config->acceptedVideoFormats); ?></p>
+
+<form action="<?php echo BASE_URL; ?>/account/upload/video/" method="post">
+
+    <div class="uploader-wrapper">
+        <input
+            class="uploader"
+            type="file"
+            name="upload"
+            data-url="<?php echo BASE_URL; ?>/ajax/upload/"
+            data-text="<?php echo Language::getText('browse_files_button'); ?>"
+            data-limit="<?php echo $config->videoSizeLimit; ?>"
+            data-extensions="<?php echo urlencode(json_encode($config->acceptedVideoFormats)); ?>"
+            data-type="video"
+            data-auto-submit="true"
+        />
+    </div>
+
+    <input type="hidden" name="submitted" value="true" />
+    <input type="hidden" name="nonce" value="<?php echo $formNonce; ?>" />
+
+</form>
